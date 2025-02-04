@@ -19,8 +19,8 @@
 
 'If the tags do not come in opening-closing pairs I do not know what will happen!
 
-'The subroutine caters for a combined total of 201 tags/per cell. This can bechanged
-'by resizing the first index of array updates(200,2) below.
+'The subroutine caters for a combined total of 201 tags/per cell. This can be changed
+'by resizing the first index of array updates(200,2) below. 
 '
 'C Lombard (4 Feb 2025)
 
@@ -33,7 +33,7 @@ Sub TurnTextRedBlue()
     Dim var As String
     Dim sleft As String
     Dim sright As String
-    Dim updates(200, 2) As Long   'Array of (start,length, del=0/ins=1) updates
+    Dim updates(200, 2) As Long   'Array(i,i) of (j=0: start, j=1: length, j=2: del=0/ins=1) updates
     Dim numUpdates As Long
     Dim cellR As Range
     Dim progress As Long
@@ -99,7 +99,6 @@ Sub TurnTextRedBlue()
                     var = DelChars(var, startPos, 5)
                     '   delete the </tag> at startPos + textLength
                     var = DelChars(var, startPos + textLength, 6)
-                    'Reduce all next startPos'with 6
                 Next i
                  
                  
