@@ -1,4 +1,4 @@
-Subroutine to scan the ActiveCell text for "<ins>..</ins>" and "<del>...</del>" tags
+Subroutine to scan the ActiveCell text for '<ins>..</ins>' and '<del>...</del>' tags
 then delete the tags and take note of their positions. The cleanup text is then copied to the cell
 at the right (any data there is overwritten, a blank column must be inserted before) and the
 text in the right cell is then turned red.strikethrough if it was deleted and blue.underlined
