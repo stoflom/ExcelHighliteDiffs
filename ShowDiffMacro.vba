@@ -31,9 +31,9 @@ Sub TurnTextRedBlue()
     Dim LastRow As Long
     Dim SaveMod As Long   'Save sheet every SaveMod rows
     
-    SaveMod = 1000        'Save evry 1000 rows
+    SaveMod = 1000        'Save every 1000 rows, this is essential to keep Excel from slowing down
     Application.ScreenUpdating = False 'Do not update screen
-    Application.EnableCancelKey = xlErrorHandler 'Enable Ctl-Break interrupt
+    Application.EnableCancelKey = xlErrorHandler 'Enable Ctl-Break interrupt (ctl-Fn-End on my keyboard)
     
     
     LastRow = ActiveSheet.Range("A:A").SpecialCells(xlCellTypeLastCell).Row
@@ -48,7 +48,7 @@ Sub TurnTextRedBlue()
                 ThisWorkbook.Save
             End If
            
-            Set cellR = ActiveCell.Offset(0, 1)
+            Set cellR = ActiveCell.Offset(0, 1)  'Cell to the right (assumed blank)
             
             var = ActiveCell.Value
             slength = Len(var)
@@ -134,14 +134,13 @@ Sub TurnTextRedBlue()
             progress = progress + 1
             
         Loop
-
-
+        
 MyErrorHandler:
-If Err.Number = 18 Then '18 =User interrupt
-     MsgBox " You clicked Ctrl + Break "
-     Exit Sub
-
-End If
+    If Err.Number = 18 Then '18 =User interrupt
+         MsgBox " You clicked Ctrl + Break "
+         Exit Sub
+    
+    End If
 
 End Sub
 
@@ -153,5 +152,6 @@ Function DelChars(str As String, start As Long, length As Long)
     sright = Right(str, slength - start - length + 1) 'Delete from left
     DelChars = sleft + sright 'Concatenate
 End Function
+
 
 
