@@ -11,21 +11,10 @@
 '
 'C Lombard (4 Feb 2025)
 
-'Subroutine to scan the ActiveCell text for <ins>..</ins> and <del>...</del> tags
-'then delete the tags and take note of their positions. The cleanup text is then copied to the cell
-'at the right (any data there is overwritten, a blank column must be inserted before) and the
-'text in the right cell is then turned red.strikethrough if it was deleted and blue.underlined
-'if it was inserted. Then routine then moves one cell down and repeats until an empty cell is found.
-
-'If the tags do not come in opening-closing pairs I do not know what will happen!
-
-'The subroutine caters for a combined total of 201 tags/per cell. This can be changed
-'by resizing the first index of array updates(200,2) below. 
-'
-'C Lombard (4 Feb 2025)
-
 
 Sub TurnTextRedBlue()
+    On Error GoTo MyErrorHandler 'See https://stackoverflow.com/questions/3279826/interrupt-abort-a-vba-loop
+    
     Dim startPos As Long
     Dim startPosDel As Long
     Dim startPosIns As Long
@@ -42,7 +31,10 @@ Sub TurnTextRedBlue()
     Dim LastRow As Long
     Dim SaveMod As Long   'Save sheet every SaveMod rows
     
-    SaveMod = 1000
+    SaveMod = 1000        'Save evry 1000 rows
+    Application.ScreenUpdating = False 'Do not update screen
+    Application.EnableCancelKey = xlErrorHandler 'Enable Ctl-Break interrupt
+    
     
     LastRow = ActiveSheet.Range("A:A").SpecialCells(xlCellTypeLastCell).Row
     
@@ -143,6 +135,14 @@ Sub TurnTextRedBlue()
             
         Loop
 
+
+MyErrorHandler:
+If Err.Number = 18 Then '18 =User interrupt
+     MsgBox " You clicked Ctrl + Break "
+     Exit Sub
+
+End If
+
 End Sub
 
 Function DelChars(str As String, start As Long, length As Long)
@@ -153,4 +153,5 @@ Function DelChars(str As String, start As Long, length As Long)
     sright = Right(str, slength - start - length + 1) 'Delete from left
     DelChars = sleft + sright 'Concatenate
 End Function
+
 
