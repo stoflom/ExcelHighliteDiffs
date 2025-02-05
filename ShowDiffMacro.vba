@@ -24,6 +24,7 @@
 '
 'C Lombard (4 Feb 2025)
 
+
 Sub TurnTextRedBlue()
     Dim startPos As Long
     Dim startPosDel As Long
@@ -33,12 +34,15 @@ Sub TurnTextRedBlue()
     Dim var As String
     Dim sleft As String
     Dim sright As String
-    Dim updates(200, 2) As Long   'Array(i,i) of (j=0: start, j=1: length, j=2: del=0/ins=1) updates
+    Dim updates(200, 2) As Long   'Array of (start,length, del=0/ins=1) updates
     Dim numUpdates As Long
     Dim cellR As Range
     Dim progress As Long
     Dim StopStop As Long
     Dim LastRow As Long
+    Dim SaveMod As Long   'Save sheet every SaveMod rows
+    
+    SaveMod = 1000
     
     LastRow = ActiveSheet.Range("A:A").SpecialCells(xlCellTypeLastCell).Row
     
@@ -47,6 +51,10 @@ Sub TurnTextRedBlue()
         
         ' Loop through each cell in the worksheet
         Do While progress < StopStop
+        
+            If progress Mod SaveMod = 0 Then  'Save every 1000 rows
+                ThisWorkbook.Save
+            End If
            
             Set cellR = ActiveCell.Offset(0, 1)
             
@@ -99,6 +107,7 @@ Sub TurnTextRedBlue()
                     var = DelChars(var, startPos, 5)
                     '   delete the </tag> at startPos + textLength
                     var = DelChars(var, startPos + textLength, 6)
+                    'Reduce all next startPos'with 6
                 Next i
                  
                  
@@ -131,6 +140,7 @@ Sub TurnTextRedBlue()
             ActiveCell.Offset(1, 0).Select
             
             progress = progress + 1
+            
         Loop
 
 End Sub
