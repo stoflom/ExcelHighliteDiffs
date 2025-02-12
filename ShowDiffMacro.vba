@@ -99,7 +99,6 @@ Sub TurnTextRedBlue()
                     var = DelChars(var, startPos, 5)
                     '   delete the </tag> at startPos + textLength
                     var = DelChars(var, startPos + textLength, 6)
-                    'Reduce all next startPos'with 6
                 Next i
                  
                  
