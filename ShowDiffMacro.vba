@@ -76,19 +76,18 @@ Sub TurnTextRedBlue()
                         updates(numUpdates, 2) = 0 '0->del
                         startPos = endPos + 11  'Start next after </del>
                         numUpdates = numUpdates + 1
-                    Else
-                        If (startPosIns < slength) Then
-                            endPos = InStr(startPosIns, var, "</ins>", 1) - 5 '<ins> will be deleted
-                            textLength = endPos - startPosIns
-                            updates(numUpdates, 0) = startPosIns
-                            updates(numUpdates, 1) = textLength
-                            updates(numUpdates, 2) = 1 '1->ins
-                            startPos = endPos + 11  'Start next after </ins>
-                            numUpdates = numUpdates + 1
-                        End If
+                    End if
+                    If (startPosIns < slength) And (startPosIns < startPosDel) Then
+                        endPos = InStr(startPosIns, var, "</ins>", 1) - 5 '<ins> will be deleted
+                        textLength = endPos - startPosIns
+                        updates(numUpdates, 0) = startPosIns
+                        updates(numUpdates, 1) = textLength
+                        updates(numUpdates, 2) = 1 '1->ins
+                        startPos = endPos + 11  'Start next after </ins>
+                        numUpdates = numUpdates + 1
                     End If
                 
-                Loop While (startPosIns < slength - 10) ' no tags to be found
+                Loop While (startPosIns < slength - 10) And (startPosDel < slength - 10) ' no tags to be found
                     
                  'Now do deletes
     
@@ -103,7 +102,15 @@ Sub TurnTextRedBlue()
                  
                  
                  'Shift to cell on right (assumed empty)
-                 cellR.Value = var
+                 With cellR
+                    .Value = var
+                    With .Font
+                        .Color = vbBlack
+                        .Strikethrough = False
+                        .Underline = False
+                    End With
+                 End With
+                 
                             
             
                 ' Turn the text red/blue
