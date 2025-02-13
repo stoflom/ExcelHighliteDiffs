@@ -87,7 +87,7 @@ Sub TurnTextRedBlue()
                         numUpdates = numUpdates + 1
                     End If
                 
-                Loop While (startPosIns < slength - 10) And (startPosDel < slength - 10) ' no tags to be found
+                Loop While (startPosIns < slength - 10) Or (startPosDel < slength - 10) ' no tags to be found
                     
                  'Now do deletes
     
