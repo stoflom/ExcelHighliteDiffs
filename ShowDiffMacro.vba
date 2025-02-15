@@ -1,12 +1,14 @@
 'Subroutine to scan the ActiveCell text for <ins>..</ins> and <del>...</del> tags
-'then delete the tags and take note of their positions. The cleanup text is then copied to the cell
+'then delete the tags and take note of their positions. The cleaned-up text is then copied to the cell
 'at the right (any data there is overwritten, a blank column must be inserted before) and the
 'text in the right cell is then turned red.strikethrough if it was deleted and blue.underlined
-'if it was inserted. Then routine then moves one cell down and repeats until an empty cell is found.
+'if it was inserted. Then routine then moves one row down and repeats until the last row. 
+'The Workbook is saved every once-in-a-while, this seems to help Excell from going non-responsive.
+'The Ctl-Break interrupt is also enable.
 
 'If the tags do not come in opening-closing pairs I do not know what will happen!
 
-'The subroutine caters for a combined total of 201 tags/per cell. This can bechanged
+'The subroutine caters for a combined total of 201 tags per cell. This can bechanged
 'by resizing the first index of array updates(200,2) below.
 '
 'C Lombard (4 Feb 2025)
@@ -89,8 +91,7 @@ Sub TurnTextRedBlue()
                 
                 Loop While (startPosIns < slength - 10) Or (startPosDel < slength - 10) ' no tags to be found
                     
-                 'Now do deletes
-    
+                'Now do deletes
                 For i = 0 To numUpdates - 1
                     startPos = updates(i, 0) - i * 11
                     updates(i, 0) = startPos 'Fix startpos for deletion
@@ -116,15 +117,15 @@ Sub TurnTextRedBlue()
             
                 ' Turn the text red/blue
                 With cellR
-                    For i = 0 To numUpdates - 1  'del->red
+                    For i = 0 To numUpdates - 1
                         startPos = updates(i, 0)
                        textLength = updates(i, 1)
-                       If updates(i, 2) = 0 Then
+                       If updates(i, 2) = 0 Then    '<del>->red
                            With .Characters(startPos, textLength).Font
                                .Color = vbRed
                                .Strikethrough = True
                            End With
-                        ElseIf updates(i, 2) = 1 Then 'ins->blue
+                        ElseIf updates(i, 2) = 1 Then '<ins>->blue
                             With .Characters(startPos, textLength).Font
                                .Color = vbBlue
                                .Underline = True
@@ -132,7 +133,6 @@ Sub TurnTextRedBlue()
                         End If
                     Next i
                 End With
-            
             End If
              
            ' Move 1 row down
@@ -146,7 +146,6 @@ MyErrorHandler:
     If Err.Number = 18 Then '18 =User interrupt
          MsgBox " You clicked Ctrl + Break "
          Exit Sub
-    
     End If
 
 End Sub
