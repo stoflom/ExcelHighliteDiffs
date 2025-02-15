@@ -76,7 +76,7 @@ Sub TurnTextRedBlue()
                         updates(numUpdates, 2) = 0 '0->del
                         startPos = endPos + 11  'Start next after </del>
                         numUpdates = numUpdates + 1
-                    End if
+                    End If
                     If (startPosIns < slength) And (startPosIns < startPosDel) Then
                         endPos = InStr(startPosIns, var, "</ins>", 1) - 5 '<ins> will be deleted
                         textLength = endPos - startPosIns
@@ -93,6 +93,7 @@ Sub TurnTextRedBlue()
     
                 For i = 0 To numUpdates - 1
                     startPos = updates(i, 0) - i * 11
+                    updates(i, 0) = startPos 'Fix startpos for deletion
                     textLength = updates(i, 1)
                     'delete the <tag> at startPos
                     var = DelChars(var, startPos, 5)
@@ -116,7 +117,7 @@ Sub TurnTextRedBlue()
                 ' Turn the text red/blue
                 With cellR
                     For i = 0 To numUpdates - 1  'del->red
-                        startPos = updates(i, 0) - i * 11
+                        startPos = updates(i, 0)
                        textLength = updates(i, 1)
                        If updates(i, 2) = 0 Then
                            With .Characters(startPos, textLength).Font
@@ -158,6 +159,10 @@ Function DelChars(str As String, start As Long, length As Long)
     sright = Right(str, slength - start - length + 1) 'Delete from left
     DelChars = sleft + sright 'Concatenate
 End Function
+
+
+
+
 
 
 
