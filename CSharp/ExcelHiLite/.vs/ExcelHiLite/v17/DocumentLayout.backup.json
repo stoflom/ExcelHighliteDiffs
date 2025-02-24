@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\stoff\\Workspace\\ExcelHighliteDiffs\\CSharp\\ExcelHiLite\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{357E118E-0F67-4670-9E96-6FD694111BBD}|ExcelHiLite\\ExcelHiLite.csproj|c:\\users\\stoff\\workspace\\excelhighlitediffs\\csharp\\excelhilite\\excelhilite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{357E118E-0F67-4670-9E96-6FD694111BBD}|ExcelHiLite\\ExcelHiLite.csproj|solutionrelative:excelhilite\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\stoff\\Workspace\\ExcelHighliteDiffs\\CSharp\\ExcelHiLite\\ExcelHiLite\\Program.cs",
+              "RelativeDocumentMoniker": "ExcelHiLite\\Program.cs",
+              "ToolTip": "C:\\Users\\stoff\\Workspace\\ExcelHighliteDiffs\\CSharp\\ExcelHiLite\\ExcelHiLite\\Program.cs",
+              "RelativeToolTip": "ExcelHiLite\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-24T16:18:31.827Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

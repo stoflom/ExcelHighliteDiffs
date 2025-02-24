@@ -1,0 +1,14 @@
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.csproj.AssemblyReference.cache
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.csproj.CoreCompileInputs.cache
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.exe.config
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.exe
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.pdb
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.exe
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.pdb
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.exe.config
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.exe
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\bin\Debug\ExcelHiLite.pdb
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.csproj.AssemblyReference.cache
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.csproj.CoreCompileInputs.cache
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.exe
+C:\Users\stoff\Workspace\ExcelHighliteDiffs\CSharp\ExcelHiLite\ExcelHiLite\obj\Debug\ExcelHiLite.pdb
