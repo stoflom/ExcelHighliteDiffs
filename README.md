@@ -8,7 +8,5 @@ The Ctl-Break interrupt is also enabled.
 
 If the tags do not come in opening-closing pairs I do not know what will happen!
 
-The subroutine caters for a combined total of 201 tags per cell. This can be changed
-by resizing the first index of array updates(200,2) below.
 
 C Lombard (4 Feb 2025)
